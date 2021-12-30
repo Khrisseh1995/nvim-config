@@ -1,5 +1,3 @@
-local colors = require("colors").get()
-
 local bufferline = require("bufferline")
 
 bufferline.setup {
