@@ -19,7 +19,6 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
-  -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'arcticicestudio/nord-vim'
@@ -42,6 +41,11 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
   use 'akinsho/bufferline.nvim'
   use 'tpope/vim-surround'
+  use 'norcalli/nvim-colorizer.lua'
+  use 'ray-x/lsp_signature.nvim'
+  use 'andymass/vim-matchup'
+  use 'max397574/better-escape.nvim'
+  use 'rafamadriz/friendly-snippets'
 end)
 
 -- Plugin configuration files
