@@ -22,7 +22,7 @@ require('packer').startup(function()
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use 'arcticicestudio/nord-vim'
-  use 'itchyny/lightline.vim' -- Fancier statusline
+  use 'feline-nvim/feline.nvim'
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
@@ -49,13 +49,14 @@ require('packer').startup(function()
   use 'max397574/better-escape.nvim'
   use 'rafamadriz/friendly-snippets'
   use 'windwp/nvim-autopairs'
+  use 'folke/trouble.nvim'
 end)
 
 -- Plugin configuration files
 require('plugin-settings.bufferline')
 require('plugin-settings.completion')
 require('plugin-settings.gitsigns')
-require('plugin-settings.lightline')
+require('plugin-settings.statusline')
 require('plugin-settings.nvimtree')
 require('plugin-settings.telescope')
 require('plugin-settings.treesitter')
