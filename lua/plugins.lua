@@ -48,6 +48,7 @@ require('packer').startup(function()
   use 'andymass/vim-matchup'
   use 'max397574/better-escape.nvim'
   use 'rafamadriz/friendly-snippets'
+  use 'windwp/nvim-autopairs'
 end)
 
 -- Plugin configuration files
