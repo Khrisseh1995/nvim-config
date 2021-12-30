@@ -36,6 +36,8 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
