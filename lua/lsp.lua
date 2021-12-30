@@ -1,5 +1,9 @@
 -- LSP settings
 local lspconfig = require 'lspconfig'
+local lspsignature = require('lsp_signature')
+local lsp_installer = require("nvim-lsp-installer")
+
+-- LSP keybindings helper function
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -43,7 +47,6 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-local lsp_installer = require("nvim-lsp-installer")
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
@@ -70,3 +73,22 @@ lsp_installer.on_server_ready(function(server)
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     server:setup(opts)
 end)
+
+-- Function signature helper plugin
+lspsignature.setup {
+  bind = true,
+  doc_lines = 0,
+  floating_window = true,
+  fix_pos = true,
+  hint_enable = true,
+  hint_prefix = " ",
+  hint_scheme = "String",
+  hi_parameter = "Search",
+  max_height = 22,
+  max_width = 120, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+  handler_opts = {
+     border = "single", -- double, single, shadow, none
+  },
+  zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
+  padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
+}
