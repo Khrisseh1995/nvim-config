@@ -1,6 +1,5 @@
 local M  = {}
 
-
 -- Colors taken from: https://github.com/NvChad/nvim-base16.lua/blob/master/lua/hl_themes/nord.lua
 -- maybe a better way of handling multiple themes...
 M.get = function()

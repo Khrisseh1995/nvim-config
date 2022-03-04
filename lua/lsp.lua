@@ -32,6 +32,13 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+
 -- Enable the following language servers
 local servers = { 'sumneko_lua', 'rust_analyzer', 'tsserver' }
 for _, lsp in ipairs(servers) do
@@ -55,6 +62,10 @@ lsp_installer.on_server_ready(function(server)
 
     -- (optional) Customize the options passed to the server
     if server.name == "tsserver" then
+        opts.on_attach = on_attach
+    end
+
+    if server.name == "rust_analyzer" then
         opts.on_attach = on_attach
     end
 
@@ -92,3 +103,38 @@ lspsignature.setup {
   zindex = 200, -- by default it will be on top of all floating windows, set to 50 send it to bottom
   padding = "", -- character to pad on left and right of signature can be ' ', or '|'  etc
 }
+
+local rust_tools_opts = {
+    tools = {
+        autoSetHints = true,
+        hover_with_actions = true,
+        runnables = {
+            use_telescope = true
+        },
+        inlay_hints = {
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+
+    -- all the opts to send to nvim-lspconfig
+    -- these override the defaults set by rust-tools.nvim
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+    server = {
+        -- on_attach is a callback called when the language server attachs to the buffer
+        -- on_attach = on_attach,
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+       }
+    },
+}
+
+require('rust-tools').setup(rust_tools_opts)

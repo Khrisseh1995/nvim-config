@@ -50,4 +50,20 @@ vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
 vim.g.indent_blankline_show_trailing_blankline_indent = false
 
 -- Set completeopt to have a better completion experience
+--
 vim.o.completeopt = 'menuone,noselect'
+-- filetype plugin indent on
+-- On pressing tab, insert 2 spaces
+vim.o.expandtab = true
+-- show existing tab with 2 spaces width
+vim.o.tabstop=2
+vim.o.softtabstop=2
+-- when indenting with '>', use 2 spaces width
+vim.o.shiftwidth=2
+
+
+-- Copy to system clipboard
+vim.o.clipboard='unnamedplus'
+
+-- line number settings
+vim.o.relativenumber = true
