@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap('n', '<leader>sp', [[<cmd>lua require('telescope.builtin
 vim.api.nvim_set_keymap('n', '<leader>so', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
--- Easier window navigation 
+-- Easier window navigation
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
@@ -23,7 +23,7 @@ vim.api.nvim_set_keymap('i', '<C-k>', '<Up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-e>', '<End>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-a>', '<ESC>^i', { noremap = true, silent = true })
 
--- todo: don't yank text on cut ( x ) 
+-- todo: don't yank text on cut ( x )
 
 -- todo: don't yank text on delete ( dd )
 
