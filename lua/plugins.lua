@@ -20,10 +20,16 @@ require('packer').startup(function()
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use 'arcticicestudio/nord-vim'
+  use "EdenEast/nightfox.nvim"
   use 'folke/tokyonight.nvim'
   use 'feline-nvim/feline.nvim'
+  use  'b0o/incline.nvim'
+  use 'nvim-lualine/lualine.nvim'
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
@@ -43,6 +49,7 @@ require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
   use 'akinsho/bufferline.nvim'
+  -- use 'nanozuki/tabby.nvim'
   use 'tpope/vim-surround'
   use 'norcalli/nvim-colorizer.lua'
   use 'ray-x/lsp_signature.nvim'
@@ -52,14 +59,24 @@ require('packer').startup(function()
   use 'windwp/nvim-autopairs'
   use 'folke/trouble.nvim'
   use 'simrat39/rust-tools.nvim'
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup()
+    end
+  }
 end)
 
 -- Plugin configuration files
 require('plugin-settings.bufferline')
 require('plugin-settings.completion')
 require('plugin-settings.gitsigns')
-require('plugin-settings.statusline')
+require('plugin-settings.lualine')
+require('plugin-settings.winbar')
 require('plugin-settings.nvimtree')
+-- require('plugin-settings.tabby')
 require('plugin-settings.telescope')
 require('plugin-settings.treesitter')
 require('plugin-settings.troublenvim')

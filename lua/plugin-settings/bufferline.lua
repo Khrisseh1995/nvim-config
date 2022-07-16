@@ -17,7 +17,6 @@ bufferline.setup {
       enforce_regular_tabs = false,
       view = "multiwindow",
       show_buffer_close_icons = true,
-      separator_style = "padded_slant",
       always_show_bufferline = true,
       diagnostics = false, 
       custom_filter = function(buf_number)

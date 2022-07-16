@@ -24,7 +24,9 @@ vim.wo.signcolumn = 'yes'
 --Set colorscheme (order is important here)
 vim.o.termguicolors = true
 vim.g.onedark_terminal_italics = 2
-vim.cmd [[colorscheme nord]]
+-- vim.cmd [[colorscheme nord]]
+vim.cmd("colorscheme nordfox")
+-- vim.cmd("colorscheme nord")
 
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
@@ -61,9 +63,12 @@ vim.o.softtabstop=2
 -- when indenting with '>', use 2 spaces width
 vim.o.shiftwidth=2
 
+vim.o.laststatus=3
+
 
 -- Copy to system clipboard
 vim.o.clipboard='unnamedplus'
 
 -- line number settings
 vim.o.relativenumber = true
+vim.o.cursorline = true

@@ -29,6 +29,10 @@ vim.api.nvim_set_keymap('i', '<C-a>', '<ESC>^i', { noremap = true, silent = true
 
 -- NVIM tree
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus <CR>', { noremap = true, silent = true })
 -- General mappings
 -- Exit terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap= true })
+
+-- Hop 
+vim.api.nvim_set_keymap('n', '<leader>ll', ':HopWord<CR>', { noremap = true, silent = true })
